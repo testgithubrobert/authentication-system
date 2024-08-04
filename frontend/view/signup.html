@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="">
+    <title>example.com</title>
+    <link rel="stylesheet" href="../public/stylesheets/signup.css">
+    <script src="../javascript/signup.js" type="module" defer></script>
+</head>
+<body>
+     <nav></nav>
+     <main>
+        <div class="welcome">
+            <h1>Welcome, lets begin!</h1>
+        </div>
+        <br>
+        <br>
+        <br>
+        <form action="http://localhost:3000/example.com/register?page=register&method=post" method="post" accept-charset="UTF-8">
+            <div>
+                <label for="email">Enter your email*</label><br>
+                <span id="email-confirmation-tick"></span>
+                <input type="email" name="email" id="email" placeholder="" required>
+            </div>
+            <div>
+                <label for="password">Create your password*</label><br>
+                <span id="password-confirmation-tick"></span>
+                <input type="password" name="password" id="password" placeholder="" maxlength="20" required>
+            </div>
+            <div>
+                <label for="username">Enter your username*</label><br>
+                <span id="username-confirmation-tick"></span>
+                <input type="name" name="username" id="username" placeholder="" required>
+            </div>
+            <br>
+            <p>Already have an account <a href="./login.html">login</a> <a href="./main.html">dashboard</a></p>
+            <div style="display: flex; gap: 1em;">
+                <button id="submit-button" type="submit" class="submit-button">continue</button>
+                <button id="reset-button" type="reset" class="reset-button">reset</button>
+            </div>
+        </form>
+     </main>
+</body>
+</html>

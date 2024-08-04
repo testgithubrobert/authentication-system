@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="">
+    <title>example.com</title>
+    <link rel="stylesheet" href="../public/stylesheets/login.css">
+    <script src="../javascript/login.js" type="module" defer></script>
+</head>
+<body>
+     <nav></nav>
+     <main>
+        <div class="welcome">
+            <h1>Login</h1>
+        </div>
+        <br>
+        <br>
+        <br>
+        <!-- so if the post request is made, we will check in our db whether the sent info is there, if true the we will allow user to enter to main page and if the jwt token is also available -->
+        <form action="http://localhost:3000/example.com/login?page=login&method=post" method="post" accept-charset="UTF-8">
+            <div>
+                <label for="email">Enter your email*</label><br>
+                <input type="email" name="email" id="email" placeholder="" required>
+            </div>
+            <div>
+                <label for="password">Enter your password*</label><br>
+                <input type="password" name="password" id="password" placeholder="" maxlength="20" required>
+            </div>
+            <br>
+            <p>Have no account <a href="./signup.html">signUp</a> <a href="./main.html">dashboard</a></p>
+            <button id="login-button" type="submit" class="login-button">Login</button>
+        </form>
+     </main>
+</body>
+</html>
