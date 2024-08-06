@@ -14,6 +14,6 @@ class pageReload implements Required<Pick<structure, 'reload'>> {
             return;   
        } else return;
     }
-}
+}  
 
 pageReload.instance

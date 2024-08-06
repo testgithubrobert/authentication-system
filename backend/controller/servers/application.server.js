@@ -10,7 +10,6 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-(async function(){
     var path = require('node:path');
 
     application.use(bodyParser.urlencoded({ extended: false }));
@@ -19,11 +18,16 @@ const cors = require('cors');
     application.use(express.json());
     application.use(cookieParser());
     application.use(cors());
-    application.use(express.static(path.join(__dirname, '../../frontend/public')));
-}());
+    application.use(express.static(path.join(__dirname, '../../../frontend/public')));
 
-(async function(){
-    application_server.listen(process.env.port, process.env.host, () => {
+const ErrorControllerMiddleware = require('../middleware/error/404.middleware.controller');
+
+application.use('/sample.com', require('../routers/application.router'));
+    application.use(ErrorControllerMiddleware);
+    
+require("dotenv").config();
+require("dotenv").configDotenv();
+    application_server.listen(process.env.port || 4000, process.env.host || "localhost", () => {
         if(!application_server.listening) {
             console.log("application server not running!");
         } else {
@@ -34,8 +38,7 @@ const cors = require('cors');
                     socket.send(`${message}`);
                 });
             });
-            
+
             console.log("application server is running!");
         }
     })
-}());

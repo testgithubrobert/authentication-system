@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "npx tsc --w ./"
+    "client": "npx tsc --w"
   },
   "author": "robb",
   "license": "ISC",
