@@ -17,7 +17,7 @@
         <br>
         <br>
         <br>
-        <form action="http://localhost:4000/sample.com/signup" method="post" accept-charset="UTF-8">
+        <form action="/sample.com/signup" method="post" accept-charset="UTF-8">
             <div>
                 <label for="first-name">Enter your first name*</label><br>
                 <span id="first-name-confirmation-tick"></span>
@@ -38,8 +38,10 @@
                 <span id="password-confirmation-tick"></span>
                 <input type="password" name="password" id="password" placeholder="" maxlength="20" required>
             </div>
-            <br>
-            <p>Already have an account <a href="./login.html">login</a></p>
+            <article>
+                <span id="indicator"></span>
+            </article>
+            <p>Already have an account <a href="/sample.com/login">login</a></p>
             <div style="display: flex; gap: 1em;">
                 <button id="submit-button" type="submit" class="submit-button">sign up</button>
                 <button id="reset-button" type="reset" class="reset-button">reset</button>

@@ -60,3 +60,15 @@ button {
 label {
     font-size: .9em
 }
+article {
+    height: 2em;
+    width: 30em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .5em
+}
+article > span {
+    font-size: .9em;
+    font-weight: bold;
+}

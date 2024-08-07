@@ -17,7 +17,7 @@ const cors = require('cors');
     application.use(bodyParser.json());
     application.use(express.json());
     application.use(cookieParser());
-    application.use(cors());
+    application.use(cors()); 
     application.use(express.static(path.join(__dirname, '../../../frontend/public')));
 
 const ErrorControllerMiddleware = require('../middleware/error/404.middleware.controller');
