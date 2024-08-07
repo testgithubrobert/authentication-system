@@ -17,7 +17,7 @@
     window.document.querySelector('nav')?.append(navbarLinksOne, navbarLinksTwo, logOut);
 }());
 
-const connection = new WebSocket("ws:/localhost:4000");
+const connection = new WebSocket("ws://localhost:8000");
 connection.addEventListener("open", () => connection.send("connection made."));
 connection.addEventListener("message", (message: any) => console.log(message.data));
 connection.addEventListener("error", (error: any) => console.log(error));

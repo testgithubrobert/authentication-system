@@ -27,7 +27,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         (_a = window.document.querySelector('nav')) === null || _a === void 0 ? void 0 : _a.append(navbarLinksOne, navbarLinksTwo, logOut);
     });
 }());
-const connection = new WebSocket("ws:/localhost:4000");
+const connection = new WebSocket("ws://localhost:8000");
 connection.addEventListener("open", () => connection.send("connection made."));
 connection.addEventListener("message", (message) => console.log(message.data));
 connection.addEventListener("error", (error) => console.log(error));
