@@ -16,7 +16,7 @@ async function SignUpMiddleware() {
     try {
         if(arguments[0].body.password.length < 10) {
             global.setTimeout(() => arguments[1].status(400).json({ "message": "password not strong" }), 1000);
-        } else if(!arguments[0].body.email){
+        } else if(!arguments[0].body.email || !arguments[0].email.includes("@gmail.com")){
             global.setTimeout(() => arguments[1].status(400).json({ "message": "email is undefined!" }), 1000);
         } else if(AlreadyExistingAccount) {
             global.setTimeout(() => arguments[1].status(400).json({ "message": "email already in use!" }), 1000);

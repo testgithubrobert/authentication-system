@@ -4,7 +4,7 @@ const application = express();
 const http = require('node:http');
 const application_server = http.createServer(application);
 const WebSocket = require('ws').Server;
-const connection = new WebSocket({ port: 4000 });
+const connection = new WebSocket({ port: 8000 });
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -32,13 +32,10 @@ require("dotenv").configDotenv();
             console.log("application server not running!");
         } else {
             connection.on("connection", (socket) => {
-                console.log("connection made to socket server");
-                socket.on("message", (message) => {
-                    console.log(`received: ${message}`)
-                    socket.send(`${message}`);
-                });
+                console.log('client connected!');
+                socket.on("message", (message) => console.log(`${message}`));
+                socket.send("connected to socket!")
             });
-
             console.log("application server is running!");
         }
     })

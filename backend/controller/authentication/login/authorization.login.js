@@ -17,18 +17,19 @@ async function LoginMiddleware() {
     try {
         let match = await bcrypt.compare(`${arguments[0].body.password}`, FoundAccount.password);
         // make jwts
-        if(!FoundAccount) {
+        if(typeof FoundAccount === 'undefined' || !arguments[0].body.email.includes("@gmail.com")) {
             global.setTimeout(() => arguments[1].status(401).json({ "message": `No such account ${arguments[0].body.email} was not found!` }), 1000);
         } else if(match === false) {
             global.setTimeout(() => arguments[1].status(401).json({ "message": `password does not match account ${arguments[0].body.email} account!` }), 1000);
         } else {
             // const token = jwt.sign(arguments[0].body, 'secrete-key', { expiresIn: '1day' });
-            await pool_connection.query(`INSERT INTO logins VALUES(${JSON.stringify(uuid())}, ${JSON.stringify(arguments[0].body.email)}, ${JSON.stringify(hash)})`);
+            await pool_connection.query(`INSERT INTO logins VALUES(
+                ${JSON.stringify(uuid())}, ${JSON.stringify(arguments[0].body.email)}, ${JSON.stringify(hash)})`);
             global.setTimeout(() => arguments[1].status(201).sendFile(path.join(__dirname, '../../../../frontend/view/main.html')), 1000);
         }
     } catch(error) {
-        console.log(error);
-        global.setTimeout(() => arguments[1].status(401).json({ "message": `No such account ${arguments[0].body.email} was not found!` }), 1000);
+        // console.log(error);
+        global.setTimeout(() => arguments[1].status(401).json({ "message": `No such account ${arguments[0].body.email} was not found, or password incorrect!` }), 1000);
     } 
 };
 
