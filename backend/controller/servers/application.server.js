@@ -8,7 +8,7 @@ const connection = new WebSocket({ port: 8000 });
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const cors = require('cors');
+const cors = require('cors');  
 
     var path = require('node:path');
 
